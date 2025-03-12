@@ -184,6 +184,7 @@ export const ResponsiveGrid: React.FC<ResponsiveGridProps> = ({
       }}
     >
       <ScrollView
+        keyboardShouldPersistTaps={'handled'}
         ref = {scrollRef}
         onScroll={onScroll}
         scrollEventThrottle={32}

@@ -1,6 +1,6 @@
 import type React from 'react';
-import type { ReactNode } from 'react';
-import type { StyleProp, ViewStyle } from 'react-native';
+import type { ReactNode, RefObject } from 'react';
+import type { NativeScrollEvent, NativeSyntheticEvent, ScrollView, StyleProp, ViewStyle } from 'react-native';
 
 interface RenderItemProps {
   item: any;
@@ -74,6 +74,19 @@ export interface ResponsiveGridProps {
    * @default ltr
    */
   direction?: 'rtl' | 'ltr';
+
+  //OWN PROPERTIES
+  onScrollList: ((event: NativeSyntheticEvent<NativeScrollEvent>) => void) | undefined;
+
+  scrollRef: RefObject<ScrollView>; 
+
+
+  //a callback which says which postids the video should play
+  visibleItemsWithPlayVideo?: (postIds: number[]) => void;
+
+  refreshing: boolean
+
+  onRefresh: () => void
 }
 
 export interface TileItem {
